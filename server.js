@@ -103,6 +103,7 @@ function newRequest() {
                     promptUser()
                 case false:
                     console.log("Wish you a nice day");
+                    // connection.end();
                     break;
             }
         })
@@ -134,7 +135,32 @@ function sendEmployeebyManager(){
 }
 
 function addEmployee(){
-
+    inquirer
+    .prompt([
+      {
+        name: "firstName",
+        type: "input",
+        message: "Enter First Name"
+      },
+      {
+        name: "lastName",
+        type: "input",
+        message: "Enter Last Name"
+      }
+    ])
+    .then(answer => {
+      connection.query(`INSERT INTO employee SET ? `,
+        {
+          first_name: answer.firstName,
+          last_name: answer.lastName,
+        },
+        function (err) {
+          if (err) throw err;
+          console.log("Employee has been added");
+          newRequest();
+        }
+      )
+    })
 }
 
 function removeEmployee(){
