@@ -1,5 +1,7 @@
 DROP DATABASE IF EXISTS employeeTrack_DB;
+
 CREATE database employeeTrack_DB;
+
 USE employeeTrack_DB;
 
 CREATE TABLE department (
