@@ -42,7 +42,7 @@ function promptUser() {
     .then(action => {
         switch (action.request) {
         case "View All Employees":
-            sendEmployees();
+            sendEmployees(); // completed
             break;
         
         case "View All Employees By Department":
@@ -70,7 +70,7 @@ function promptUser() {
             break;
 
         case "View All Roles":
-            sendRoles();
+            sendRoles(); // completed
             break;
         
         case "Add Role'":
@@ -82,7 +82,7 @@ function promptUser() {
             break;
                 
         case "View All Departments":
-            sendDepartments();
+            sendDepartments(); // completed
             break;
         }
     }) 
