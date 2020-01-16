@@ -110,6 +110,7 @@ function newRequest() {
 
 function sendEmployees(){
     var query = `SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.Name FROM employee LEFT JOIN role ON role_id = role.ID LEFT JOIN department ON department_id = department.ID`
+    
 
     connection.query(query, function (err, results) {
         if(err) throw(err);
@@ -119,13 +120,51 @@ function sendEmployees(){
 }
 
 function sendEmployeebyDept(){
-    var query = `SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.Name FROM employee LEFT JOIN role ON role_id = role.ID LEFT JOIN department ON department_id = department.ID`
+    var query = ``
 
     connection.query(query, function (err, results) {
         if(err) throw(err);
         console.table(results);
         newRequest()
     });
+}
+
+function sendEmployeebyManager(){
+
+}
+
+function addEmployee(){
+
+}
+
+function removeEmployee(){
+
+}
+
+function updateEmployeeRole(){
+
+}
+
+function updateEmployeeManager(){
+
+}
+
+function sendRoles(){
+    var query = `SELECT * FROM employeeTrack_DB.role`
+
+    connection.query(query, function (err, results) {
+        if (err) throw err;
+        console.table(results);
+        newRequest();
+    });  
+}
+
+function addRole(){
+
+}
+
+function removeRole(){
+    
 }
 
 function sendDepartments() {
