@@ -103,7 +103,6 @@ function newRequest() {
                     promptUser()
                 case false:
                     console.log("Wish you a nice day");
-                    connection.end();
                     break;
             }
         })
@@ -118,3 +117,25 @@ function sendEmployees(){
         newRequest()
     });
 }
+
+function sendEmployeebyDept(){
+    var query = `SELECT employee.id, employee.first_name, employee.last_name, role.title, role.salary, department.Name FROM employee LEFT JOIN role ON role_id = role.ID LEFT JOIN department ON department_id = department.ID`
+
+    connection.query(query, function (err, results) {
+        if(err) throw(err);
+        console.table(results);
+        newRequest()
+    });
+}
+
+function sendDepartments() {
+    var query = `SELECT * FROM employeeTrack_DB.department`
+
+    connection.query(query, function (err, results) {
+        if (err) throw err;
+        console.table(results);
+        newRequest();
+    });
+}
+
+
