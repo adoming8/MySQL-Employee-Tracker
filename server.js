@@ -54,7 +54,7 @@ function promptUser() {
             break;
         
         case "Add Employee":
-            addEmployee();
+            addEmployee(); // completed
             break;
 
         case "Remove Employee":
@@ -101,9 +101,10 @@ function newRequest() {
             switch (data.newReq) {
                 case true:
                     promptUser()
+                    break;
                 case false:
                     console.log("Wish you a nice day");
-                    // connection.end();
+                    connection.end();
                     break;
             }
         })
